@@ -1,5 +1,11 @@
+// On Local
 kubectl apply -f postgres-configmap.yml
 kubectl apply -f postgres-storage.yml 
 kubectl apply -f postgres-deployment.yml 
 kubectl apply -f postgres-service.yml
- 
+
+// On GCP
+kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-config.yml
+kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-storage.yml
+kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-deployment.yml
+kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-service.yml
