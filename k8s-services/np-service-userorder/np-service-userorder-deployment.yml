@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: np-service-userorder
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: np-service-userorder
+    spec:
+      containers:
+      - name: np-service-userorder
+        image: navalprabhakar/np-service-userorder:0.0.1-Snapshot
+        ports:
+        - containerPort: 9090

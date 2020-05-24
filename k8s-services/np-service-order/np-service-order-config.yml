@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: np-service-order
+  labels:
+    app: np-service-order
+data:
+  application.properties: |-
+    spring.application.name=np-service-order
+    spring.profiles.active=k8s
+    server.port=9092
+    spring.cloud.kubernetes.reload.enabled=true 
+    management.endpoint.restart.enabled = true
+    server.compression.enabled=true
+    
+    # PostgresSql Config
+    spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/npdb?currentSchema=order_mgmt
+    spring.datasource.username=postgres
+    spring.datasource.password=postgres
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+    spring.jackson.serialization.write-dates-as-timestamps=true
+    spring.main.allow-bean-definition-overriding=true
+
+
