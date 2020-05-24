@@ -13,4 +13,4 @@ spec:
       - name: np-service-user
         image: navalprabhakar/np-service-user:0.0.1-Snapshot
         ports:
-        - containerPort: 18080
+        - containerPort: 9091
