@@ -5,7 +5,43 @@ kubectl apply -f postgres-deployment.yml
 kubectl apply -f postgres-service.yml
 
 // On GCP
+gcloud container clusters get-credentials cluster-np-assn --zone us-central1-c --project active-tome-276612
+
 kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-config.yml
-kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-storage.yml
+kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-storage-pvc-gke.yml
 kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-deployment.yml
 kubectl apply -f https://raw.githubusercontent.com/navalprabhakar/training-assn-gcp-2020-may/master/np-db-postgres/k8s/np-db-postgres/postgres-service.yml
+
+
+# kubectl delete service postgres 
+# kubectl delete deployment postgres
+# kubectl delete configmap postgres-config
+# kubectl delete persistentvolumeclaim postgres-pv-claim
+# kubectl delete persistentvolume postgres-pv-volume
+
+----------------------------------------------------------------
+
+Error Code 1
+
+navalprabhakar@cloudshell:/mnt (active-tome-276612)$ kubectl logs postgres-54db6bdb8b-mwt8n
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+initdb: directory "/var/lib/postgresql/data" exists but is not empty
+It contains a lost+found directory, perhaps due to it being a mount point.
+Using a mount point directly as the data directory is not recommended.
+Create a subdirectory under the mount point.
+navalprabhakar@cloudshell:/mnt (active-tome-276612)$
+------------------------------------------------------------
+
+Correction: Delete Persistent Volume part and add subPath for mounting volume
+
+---------------------------------------------------------------
+
+gcloud compute firewall-rules create myservice --allow tcp:32590
