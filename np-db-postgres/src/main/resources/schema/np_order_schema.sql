@@ -12,7 +12,7 @@ CREATE TABLE "order_mgmt".t_order
     amount numeric(18,2),
 	order_date character varying(30) COLLATE pg_catalog."default",
 
-	CONSTRAINT t_order_pkey PRIMARY KEY (order_id),
+	CONSTRAINT t_order_pkey PRIMARY KEY (order_id)
 )
 
 TABLESPACE pg_default;
