@@ -17,7 +17,7 @@ public class DefaultOrderService implements OrderService {
 
 	@Override
 	public List<Order> findOrdersByUserId(Long userId) {
-		return orderRepository.findByUserId(userId);
+		return orderRepository.findAllByUserId(userId);
 	}
 
 }

@@ -2,15 +2,12 @@ package com.navalprabhakar.training.gcp.userorder;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class Order implements Serializable {
 
-	private static final long serialVersionUID = 5426575085447465109L;
+	private static final long serialVersionUID = 4426575085447465109L;
 
 	private Long orderId;
 
-	@JsonIgnoreProperties
 	private Long userId;
 
 	private Double amount;
