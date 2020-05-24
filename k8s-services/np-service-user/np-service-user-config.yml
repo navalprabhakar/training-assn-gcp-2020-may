@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: np-service-user
+  labels:
+    app: np-service-user
+data:
+  application.properties: |-
+    spring.application.name=np-service-user
+    spring.profiles.active=k8s
+    server.port=9091
+    spring.cloud.kubernetes.reload.enabled=true 
+    management.endpoint.restart.enabled = true
+    server.compression.enabled=true
+    
+    # PostgresSql Config
+    spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/npdb?currentSchema=user_mgmt
+    spring.datasource.username=postgres
+    spring.datasource.password=postgres
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+    spring.jackson.serialization.write-dates-as-timestamps=true
+    spring.main.allow-bean-definition-overriding=true
+
+

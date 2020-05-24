@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: np-service-user
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: np-service-user
+    spec:
+      containers:
+      - name: np-service-user
+        image: navalprabhakar/np-service-user:0.0.1-Snapshot
+        ports:
+        - containerPort: 18080
