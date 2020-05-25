@@ -12,5 +12,6 @@ spec:
       containers:
       - name: np-service-user
         image: navalprabhakar/np-service-user:0.0.1-Snapshot
+        imagePullPolicy: Always
         ports:
         - containerPort: 9091
